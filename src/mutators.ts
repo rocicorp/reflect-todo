@@ -57,8 +57,10 @@ export const mutators = {
     await putTodo(tx, newTodo);
   },
 
-  init: async () => {
+  init: async (tx: WriteTransaction) => {
     // This shouldn't be necessary, but Reflect doesn't send initial snapshot
     // until first mutation. Bug: https://github.com/rocicorp/reflect-server/issues/146.
+    console.log("running init mutation", await tx.get("init"));
+    await tx.put("init", env);
   },
 };
