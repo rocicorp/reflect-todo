@@ -30,6 +30,11 @@ import { updateTodo, deleteTodo, Todo, listTodos, putTodo } from "./todo";
 
 export type M = typeof mutators;
 
+let env = "client";
+export function setEnv(e: string) {
+  env = e;
+}
+
 export const mutators = {
   updateTodo,
   deleteTodo,

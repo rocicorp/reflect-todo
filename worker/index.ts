@@ -1,5 +1,7 @@
 import { createReflectServer } from "@rocicorp/reflect-server";
-import { mutators } from "../src/mutators";
+import { mutators, setEnv } from "../src/mutators";
+
+setEnv("server");
 
 const authHandler = async (auth: string) => {
   return {
