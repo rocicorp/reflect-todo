@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
     "dev": "vite",
-    "dev-worker": "wrangler dev",
+    "dev-worker": "npx wrangler dev",
+    "dev-worker-local": "npm run dev-worker -- --local --persist",
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview",
     "update-reflect": "./build-latest-reflect.sh",
