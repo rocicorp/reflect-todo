@@ -9,13 +9,14 @@
     "dev-worker": "wrangler dev",
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview",
+    "update-reflect": "./build-latest-reflect.sh",
     "format": "prettier --write './src/*/*.{js,jsx,json,ts,tsx,html,css,md}' '*.{cjs,js,jsx,json,ts,tsx,html,css,md}'"
   },
   "devDependencies": {
     "@rocicorp/eslint-config": "^0.1.0",
     "@rocicorp/rails": "^0.2.2",
-    "@rocicorp/reflect": "^0.13.1",
-    "@rocicorp/reflect-server": "^0.22.0",
+    "@rocicorp/reflect": "./vendor/rocicorp-reflect-0.13.0-beta.0.tgz",
+    "@rocicorp/reflect-server": "./vendor/rocicorp-reflect-server-0.22.0-beta.0.tgz",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
@@ -41,5 +42,9 @@
     "bracketSpacing": true,
     "tabWidth": 2,
     "useTabs": false
+  },
+  "dependencies": {
+    "@rocicorp/reflect": "./vendor/rocicorp-reflect-0.13.0-beta.0.tgz",
+    "@rocicorp/reflect-server": "./vendor/rocicorp-reflect-server-0.22.0-beta.0.tgz"
   }
 }
