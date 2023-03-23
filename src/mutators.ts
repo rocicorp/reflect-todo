@@ -30,6 +30,16 @@ import { updateTodo, deleteTodo, Todo, listTodos, putTodo } from "./todo";
 
 export type M = typeof mutators;
 
+export enum Env {
+  Client,
+  Server,
+}
+
+let env = Env.Client;
+export const setEnv = (newEnv: Env) => {
+  env = newEnv;
+};
+
 export const mutators = {
   updateTodo,
   deleteTodo,
@@ -44,6 +54,11 @@ export const mutators = {
   // reconcile any changes that happened client-side in the meantime, and update
   // the UI to reflect the changes.
   createTodo: async (tx: WriteTransaction, todo: Omit<Todo, "sort">) => {
+    if (env === Env.Client) {
+      console.log("run mutation on client", tx.clientID);
+      return;
+    }
+    console.log("run mutation on server", tx.clientID);
     const todos = await listTodos(tx);
     todos.sort((t1, t2) => t1.sort - t2.sort);
 
