@@ -10,13 +10,13 @@ const authHandler = async (auth: string) => {
   };
 };
 
-const { worker, RoomDO, AuthDO } = createReflectServer({
+const { worker, RoomDO, AuthDO } = createReflectServer((env: any) => ({
   mutators,
   authHandler,
   logLevel: "debug",
   metricsSink: createDatadogMetricsSink({
-    apiKey: "58066c1d3098ad9cb0bb30bac696cc08",
+    apiKey: env.DATADOG_API_KEY,
     service: "reflect-todo",
   }),
-});
+}));
 export { worker as default, RoomDO, AuthDO };
