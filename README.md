@@ -4,7 +4,7 @@ This is a demo of Reflect: an upcoming Replicache-as-a-service product we are bu
 
 The idea of Reflect is that you can get all the benefits of [Replicache](https://replicache.dev/) without having to build your own backend. Think of it like Firebase, but with multiplayer and offline support that works 😂.
 
-Currently the way you run this demo is "on-prem": you get yourself a Cloudflare account and upload the backend (which is inside this repo) to your Cloudflare account.
+Currently the way you run this demo is on-"prem": you get yourself a Cloudflare account and upload the backend (which is inside this repo) to your Cloudflare account.
 
 You don't have to know much/anything about how the backend works. It's a black box. In the future, we will also offer the backend as a service.
 
@@ -14,71 +14,33 @@ See also https://github.com/rocicorp/replidraw-do, a fancier drawing demo.
 
 Running live at https://reflect-todo.vercel.app/.
 
-## Building Your Own Thing
+## Setup
 
-First, get an account at Cloudflare: https://workers.cloudflare.com/.
+```bash
+npm install
+```
+
+## Develop
+
+```bash
+# start the backend
+npm run dev-worker
+
+# start the frontend
+VITE_WORKER_URL=ws://127.0.0.1:8787 npm run dev
+```
+
+## Publish to Cloudflare
+
+First, get an account at Cloudflare: https://workers.cloudflare.com/ and enable Workers and Durable Objects.
 
 Then:
 
 ```bash
-npm install
-
-# (only need to do once per-project)
-# generate a shared secret enabling Reflect Server to authenticate
-# administrative calls, e.g. to create a new room. Configure
-# Reflect Server with the key via wrangler:
-npx wrangler secret put REFLECT_AUTH_API_KEY
-
-# start the backend
-# data will be stored in memory, so when the server restarts, data is gone
-npm run dev-worker
-
-# (in a separate shell)
-# start the frontend
-
-# must be done each time you restart your server
-# pick a new, random roomID
-export VITE_ROOM_ID=$(head -c 10 /dev/random | md5 | head -c 6)
-echo VITE_ROOM_ID=$VITE_ROOM_ID
-
-# create the new room
-# Note: The first time you do this, you'll get an error that the Durable Object binding is unavailable.
-# You need to navigate to enable Durable Objects:
-# 1. Navigate to: https://dash.cloudflare.com/
-# 2. Pick "workers" from left nav and select your worker
-# 3. In your Worker, scroll down to Durable Objects. Click Learn more > View Paid Plan.
-# 4. Select Purchase Workers Paid and complete the payment process to enable Durable Objects.
-curl -X POST 'http://127.0.0.1:8787/createRoom' \
-  -H 'x-reflect-auth-api-key: <Auth API key chosen above>' \
-  -H 'Content-type: application/json' \
-  -d "{ \"roomID\": \"$VITE_ROOM_ID\" }"
-
-VITE_WORKER_URL=ws://127.0.0.1:8787 npm run dev
-```
-
-If you would prefer not to re-create a room each time you run `dev-worker` you can pass it `--local --persist` and it will run the worker on your computer and save the data locally.
-
-## Publishing Worker to Cloudflare
-
-```bash
-# publish to Cloudflare
+# publish worker to Cloudflare
 npx wrangler publish
 
-# pick a new, random roomID, eg:
-VITE_ROOM_ID=$(head -c 10 /dev/random | md5 | head -c 6)
-echo VITE_ROOM_ID=$VITE_ROOM_ID
-
-# create the new room
-curl -X POST 'http://<host from publish command>/createRoom' \
-  -H 'x-reflect-auth-api-key: <Auth API key chosen above>' \
-  -H 'Content-type: application/json' \
-  -d "{ \"roomID\": \"$VITE_ROOM_ID\" }"
-
-# run frontend
-VITE_ROOM_ID=<value from above> \
-  VITE_WORKER_URL=wss://<host from publish command> \
-  npm run dev
-
+# run frontend against published worker
 VITE_WORKER_URL=wss://<host from publish command> npm run dev
 ```
 
@@ -151,12 +113,8 @@ curl -X GET "https://api.cloudflare.com/client/v4/accounts/:accountid/workers/du
 
 ### How to run different code for mutation on server
 
-You can create in `mutators.ts` a global that indicates which environment the file is running in, and then set that variable from worker/index.ts. Commit [bf7cb374b9e82b311659fcab704b65a66e0739a1](https://github.com/rocicorp/reflect-todo/commit/bf7cb374b9e82b311659fcab704b65a66e0739a1) shows an example.
+The `WriteTransaction` class passed to mutators has a `environment` field which returns either `"client"` or `"server"`.
 
 ### How to know when a mutator has run on the server
 
 Using above, you can store state in the client view that tracks whether a given mutator has run on client-side or server. Commit [e488892dd69b828b1b9ab253f06a42628d25831d](https://github.com/rocicorp/reflect-todo/commit/e488892dd69b828b1b9ab253f06a42628d25831d) shows an example of this.
-
-### How to migrate to `v0.19.x`
-
-Action is required to upgrade to Reflect Server version `0.19.x` from an earlier version. See the [Migration Guide](doc/migration.md).

@@ -1,3 +1,9 @@
+// This file defines our domain objects and some CRUD helpers.
+//
+// For convenience we use @rocicorp/rails to do this (see:
+// https://github.com/rocicorp/rails). Rails generates these CRUD functions and
+// also schema validation.
+
 import { z } from "zod";
 import { entitySchema, generate, Update } from "@rocicorp/rails";
 

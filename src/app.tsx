@@ -14,9 +14,9 @@ const App = ({ reflect }: { reflect: Reflect<M> }) => {
   const todos = useSubscribe(reflect, listTodos, [], [reflect]);
   todos.sort((a, b) => a.sort - b.sort);
 
-  // Define event handlers and connect them to Replicache mutators. Each
-  // of these mutators runs immediately (optimistically) locally, then runs
-  // again on the server-side automatically.
+  // Define event handlers and connect them to Reflect mutators. Each of these
+  // mutators runs immediately (optimistically) locally, then runs again on the
+  // server-side automatically.
   const handleNewItem = (text: string) =>
     reflect.mutate.createTodo({
       id: nanoid(),
