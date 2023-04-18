@@ -12,7 +12,6 @@
     "format": "prettier --write './src/*/*.{js,jsx,json,ts,tsx,html,css,md}' '*.{cjs,js,jsx,json,ts,tsx,html,css,md}'"
   },
   "devDependencies": {
-    "@miniflare/tre": "^3.0.0-next.13",
     "@rocicorp/eslint-config": "^0.1.0",
     "@rocicorp/rails": "^0.2.2",
     "@rocicorp/reflect": "^0.14.0-beta.0",
