@@ -1,12 +1,12 @@
 # reflect-todo
 
-This is a demo of Reflect: an upcoming Replicache-as-a-service product we are building.
+This is a demo of Reflect: an upcoming multiplayer SaaS we are building.
 
 The idea of Reflect is that you can get all the benefits of [Replicache](https://replicache.dev/) without having to build your own backend. Think of it like Firebase, but with multiplayer and offline support that works 😂.
 
 Currently the way you run this demo is on-"prem": you get yourself a Cloudflare account and upload the backend (which is inside this repo) to your Cloudflare account.
 
-You don't have to know much/anything about how the backend works. It's a black box. In the future, we will also offer the backend as a service.
+You don't have to know much/anything about how the backend works. It's a black box. In the future, the backend will become a service.
 
 See also https://github.com/rocicorp/replidraw-do, a fancier drawing demo.
 
@@ -29,6 +29,8 @@ npm run dev-worker
 # start the frontend
 VITE_WORKER_URL=ws://127.0.0.1:8787 npm run dev
 ```
+
+**Note:** By default, the development server loses its state on restart. This is often convenient. To cause it to persist state across restarts, call `npm run dev-worker -- --persist`.
 
 ## Publish to Cloudflare
 
