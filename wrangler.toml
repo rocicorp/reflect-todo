@@ -1,4 +1,4 @@
-name = "reflect-todo"
+name = "aa-reflect-todo"
 main = "worker/index.ts"
 compatibility_date = "2022-06-03"
 
