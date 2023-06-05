@@ -50,6 +50,7 @@ VITE_WORKER_URL=wss://<host from publish command> npm run dev
 
 - https://github.com/rocicorp/replidraw-do
 - Rails: useful boilerplate for crud / datastructures: https://github.com/rocicorp/rails
+- As Reflect is a SaaS version of Replicache, the docs for Replicache are helpful, for example the interact intro: https://doc.replicache.dev/. Of course the bits related to your backend and sync can be ignored as Reflect handles all that.
 
 ## Authentication and Authorization
 
