@@ -46,6 +46,11 @@ npx wrangler publish
 VITE_WORKER_URL=wss://<host from publish command> npm run dev
 ```
 
+## Other Examples / Resources
+
+- https://github.com/rocicorp/replidraw-do
+- Rails: useful boilerplate for crud / datastructures: https://github.com/rocicorp/rails
+
 ## Authentication and Authorization
 
 Reflect can optionally authenticate users who connect to rooms with your server and authorize their access to the room.
