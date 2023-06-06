@@ -20,6 +20,11 @@ Running live at https://reflect-todo.vercel.app/.
 npm install
 ```
 
+If you are on Linux, make sure you have the LLVM C++ standard library installed.
+On a Debian-based system:
+
+`sudo apt install libc++1`
+
 ## Develop
 
 ```bash
