@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./app";
 import { mutators } from "./mutators";
-import { Reflect } from "@rocicorp/reflect";
+import { Reflect } from "@rocicorp/reflect/client";
 
 const socketOrigin =
   import.meta.env.VITE_WORKER_URL ??

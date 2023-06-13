@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Reflect } from "@rocicorp/reflect";
+import { Reflect } from "@rocicorp/reflect/client";
 import { useSubscribe } from "replicache-react";
 
 import { M } from "./mutators";
