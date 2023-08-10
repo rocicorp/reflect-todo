@@ -15,7 +15,7 @@
     "@miniflare/tre": "^3.0.0-next.13",
     "@rocicorp/eslint-config": "^0.1.0",
     "@rocicorp/rails": "^0.2.2",
-    "@rocicorp/reflect": "^0.30.0",
+    "@rocicorp/reflect": "^0.30.1",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
