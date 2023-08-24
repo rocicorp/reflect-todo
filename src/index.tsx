@@ -6,8 +6,8 @@ import { mutators } from "./mutators";
 import { Reflect } from "@rocicorp/reflect/client";
 
 const socketOrigin =
-  import.meta.env.VITE_WORKER_URL ??
-  "wss://reflect-todo.replicache.workers.dev";
+  import.meta.env.VITE_REFLECT_URL ??
+  "wss://medieval-viridian-soldier-lloyod8u.reflect-server.net";
 
 const r = new Reflect({
   socketOrigin,

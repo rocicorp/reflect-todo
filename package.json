@@ -6,16 +6,14 @@
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
     "dev": "vite",
-    "dev-worker": "wrangler dev --experimental-local",
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write './src/*/*.{js,jsx,json,ts,tsx,html,css,md}' '*.{cjs,js,jsx,json,ts,tsx,html,css,md}'"
   },
   "devDependencies": {
-    "@miniflare/tre": "^3.0.0-next.13",
     "@rocicorp/eslint-config": "^0.1.0",
     "@rocicorp/rails": "^0.2.2",
-    "@rocicorp/reflect": "^0.31.0",
+    "@rocicorp/reflect": "^0.31.6",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",

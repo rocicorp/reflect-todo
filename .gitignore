@@ -1,3 +1,6 @@
+.reflect
+reflect.config.json
+
 # Logs
 logs
 *.log
