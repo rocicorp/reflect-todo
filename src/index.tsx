@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./app";
 import { mutators } from "./mutators";
 import { Reflect } from "@rocicorp/reflect/client";
+import { nanoid } from "nanoid";
 
 const socketOrigin =
   import.meta.env.VITE_REFLECT_URL ??
@@ -11,7 +12,7 @@ const socketOrigin =
 
 const r = new Reflect({
   socketOrigin,
-  userID: "todo-user",
+  userID: nanoid(),
   roomID: "my-room",
   mutators,
 });
