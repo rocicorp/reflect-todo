@@ -27,9 +27,6 @@ VITE_REFLECT_URL=ws://127.0.0.1:8080 npm run dev
 Then:
 
 ```bash
-# Create an app on reflect.net
-npx reflect init --new
-
 # Publish server to reflect.net
 npx reflect publish
 
