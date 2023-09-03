@@ -5,9 +5,7 @@ import App from "./app";
 import { mutators } from "./mutators";
 import { Reflect } from "@rocicorp/reflect/client";
 
-const socketOrigin =
-  import.meta.env.VITE_REFLECT_URL ??
-  "wss://medieval-viridian-soldier-lloyod8u.reflect-server.net";
+const socketOrigin = import.meta.env.VITE_REFLECT_URL ?? "";
 
 const r = new Reflect({
   socketOrigin,
