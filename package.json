@@ -13,7 +13,7 @@
   "devDependencies": {
     "@rocicorp/eslint-config": "^0.1.0",
     "@rocicorp/rails": "^0.2.2",
-    "@rocicorp/reflect": "^0.33.0-canary.2",
+    "@rocicorp/reflect": "^0.33.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
