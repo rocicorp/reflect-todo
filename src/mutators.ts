@@ -16,7 +16,7 @@
 // The Reflect sync protocol ensures that the server-side result takes
 // precedence over the client-side optimistic result.
 
-import { WriteTransaction } from "@rocicorp/reflect/client";
+import { WriteTransaction } from "@rocicorp/reflect";
 import { updateTodo, deleteTodo, Todo, listTodos, putTodo } from "./todo";
 
 export type M = typeof mutators;
