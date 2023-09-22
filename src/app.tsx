@@ -8,7 +8,7 @@ import { listTodos, TodoUpdate } from "./todo";
 import Header from "./components/header";
 import MainSection from "./components/main-section";
 
-// This is the top-level component for our app.
+// This is the top-level component for the app.
 const App = ({ reflect }: { reflect: Reflect<M> }) => {
   // Subscribe to all todos and sort them.
   const todos = useSubscribe(reflect, listTodos, [], [reflect]);
