@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { Reflect } from "@rocicorp/reflect/client";
-import { useSubscribe } from "replicache-react";
+import { useSubscribe } from "@rocicorp/reflect/react";
 
 import { M } from "./mutators";
 import { listTodos, TodoUpdate } from "./todo";
