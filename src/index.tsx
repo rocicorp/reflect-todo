@@ -5,10 +5,10 @@ import App from "./app";
 import { mutators } from "./mutators";
 import { Reflect } from "@rocicorp/reflect/client";
 
-const socketOrigin = import.meta.env.VITE_REFLECT_URL ?? "";
+const server = import.meta.env.VITE_REFLECT_SERVER ?? "";
 
 const r = new Reflect({
-  socketOrigin,
+  server,
   userID: "anon",
   roomID: "my-room",
   mutators,

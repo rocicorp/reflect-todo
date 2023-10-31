@@ -19,7 +19,7 @@ npm install
 npx reflect dev
 
 # In a separate terminal, start the frontend
-VITE_REFLECT_URL=ws://127.0.0.1:8080 npm run dev
+VITE_REFLECT_SERVER=http://127.0.0.1:8080/ npm run dev
 ```
 
 ## Publish
@@ -33,6 +33,6 @@ npx reflect publish
 # Publish UI somewhere, for example Vercel.
 npx vercel
 
-# Note: You'll have to set the VITE_REFLECT_URL env
+# Note: You'll have to set the VITE_REFLECT_SERVER env
 # var to whatever `npx reflect publish` printed.
 ```
