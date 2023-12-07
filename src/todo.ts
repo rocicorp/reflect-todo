@@ -15,7 +15,7 @@ export type Todo = {
 
 export type TodoUpdate = Update<Todo>;
 export const {
-  put: putTodo,
+  set: setTodo,
   update: updateTodo,
   delete: deleteTodo,
   list: listTodos,

@@ -17,7 +17,7 @@
 // precedence over the client-side optimistic result.
 
 import { WriteTransaction } from "@rocicorp/reflect";
-import { updateTodo, deleteTodo, Todo, listTodos, putTodo } from "./todo";
+import { updateTodo, deleteTodo, Todo, listTodos, setTodo } from "./todo";
 
 export type M = typeof mutators;
 
@@ -46,11 +46,6 @@ export const mutators = {
 
     const maxSort = todos.pop()?.sort ?? 0;
     const newTodo: Todo = { ...todo, sort: maxSort + 1 };
-    await putTodo(tx, newTodo);
-  },
-
-  init: async () => {
-    // This shouldn't be necessary, but Reflect doesn't send initial snapshot
-    // until first mutation. Bug: https://github.com/rocicorp/reflect-server/issues/146.
+    await setTodo(tx, newTodo);
   },
 };
