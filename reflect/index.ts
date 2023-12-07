@@ -4,7 +4,6 @@ import { mutators, M } from "../src/mutators";
 function makeOptions(): ReflectServerOptions<M> {
   return {
     mutators,
-    logLevel: "debug",
   };
 }
 
