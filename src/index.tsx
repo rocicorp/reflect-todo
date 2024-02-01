@@ -4,11 +4,10 @@ import "./index.css";
 import App from "./app";
 import { mutators } from "./mutators";
 import { Reflect } from "@rocicorp/reflect/client";
-
-const server = import.meta.env.VITE_REFLECT_SERVER ?? "";
+import { reflectServer } from "./host";
 
 const r = new Reflect({
-  server,
+  server: reflectServer,
   userID: "anon",
   roomID: "my-room",
   mutators,
