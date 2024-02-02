@@ -7,3 +7,4 @@ dist
 lib
 env.d.ts
 vite.config.ts
+publish-reflect.js
