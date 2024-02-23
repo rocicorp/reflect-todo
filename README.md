@@ -28,7 +28,7 @@ Then:
 
 ```bash
 # Publish server to reflect.net
-npx reflect publish
+npx reflect publish --app reflect-todo
 
 # Publish UI somewhere, for example Vercel.
 npx vercel
