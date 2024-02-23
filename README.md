@@ -16,7 +16,7 @@ npm install
 
 ```bash
 # start the backend
-npx reflect dev --server-path=./reflect/index.ts
+npx reflect dev
 
 # In a separate terminal, start the frontend
 VITE_REFLECT_SERVER=http://127.0.0.1:8080/ npm run dev
@@ -28,7 +28,7 @@ Then:
 
 ```bash
 # Publish server to reflect.net
-npx reflect publish --app reflect-todo --server-path=./reflect/index.ts
+npx reflect publish --app reflect-todo
 
 # Publish UI somewhere, for example Vercel.
 npx vercel

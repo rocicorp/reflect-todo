@@ -20,22 +20,20 @@ const appName = `${appBaseName}-${refName}`
 publish();
 
 async function publish() {
-  const output = await runCommand("npx", [
-    "reflect",
-    "publish",
-    "--reflect-channel=canary",
-    `--app=${appName}`,
-    "--auth-key-from-env=REFLECT_AUTH_KEY",
-  ]);
-
-  // Ick. A future version of Reflect will add an --output=json to avoid this.
-  const lines = output.toString().split("\n");
-  const success = lines.findIndex((line) =>
-    line.includes("🎁 Published successfully to:")
+  const output = JSON.parse(
+    await runCommand("npx", [
+      "reflect",
+      "publish",
+      "--reflect-channel=canary",
+      `--app=${appName}`,
+      "--auth-key-from-env=REFLECT_AUTH_KEY",
+      "--output=json",
+    ])
   );
-  const url = lines[success + 1];
 
-  fs.writeFileSync("./.env", `VITE_REFLECT_SERVER=${url}`);
+  if (output.success) {
+    fs.writeFileSync("./.env", `VITE_REFLECT_SERVER=${output.url}`);
+  }
 }
 
 // Run a command and return its output, but also echo that output to the console.
